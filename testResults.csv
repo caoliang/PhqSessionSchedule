@@ -1,0 +1,36 @@
+SNo,Search Type,Heuristic Type (CH),Heuristic Type (MH),Time Spent (Minutes),Hardscore,Softscore
+1,First Fit Decreasing,First Fit Decreasing,Nil,1,1340,-19540
+2,First Fit Decreasing,First Fit Decreasing,Nil,2,1340,-17320
+3,First Fit Decreasing,First Fit Decreasing,Nil,3,1340,-16320
+4,First Fit Decreasing,First Fit Decreasing,Nil,4,1340,-15860
+5,First Fit Decreasing,First Fit Decreasing,Nil,5,1340,-15840
+6,First Fit Decreasing,First Fit Decreasing,Nil,10,1340,-15740
+7,Step Counting Hill Climbing,First Fit Decreasing,Step Counting Hill Climbing,1,1340,-15840
+8,Step Counting Hill Climbing,First Fit Decreasing,Step Counting Hill Climbing,2,1340,-15760
+9,Step Counting Hill Climbing,First Fit Decreasing,Step Counting Hill Climbing,3,1340,-15760
+10,Step Counting Hill Climbing,First Fit Decreasing,Step Counting Hill Climbing,4,1340,-15760
+11,Step Counting Hill Climbing,First Fit Decreasing,Step Counting Hill Climbing,5,1340,-15760
+12,Step Counting Hill Climbing,First Fit Decreasing,Step Counting Hill Climbing,10,1340,-15760
+13,Tabu Search,First Fit Decreasing,Tabu Search,1,1340,-16000
+14,Tabu Search,First Fit Decreasing,Tabu Search,2,1340,-16000
+15,Tabu Search,First Fit Decreasing,Tabu Search,3,1340,-15780
+16,Tabu Search,First Fit Decreasing,Tabu Search,4,1340,-15780
+17,Tabu Search,First Fit Decreasing,Tabu Search,5,1340,-15780
+18,Tabu Search,First Fit Decreasing,Tabu Search,10,1340,-15780
+19,Late Acceptance,First Fit Decreasing,Late Acceptance,1,1340,-16020
+20,Late Acceptance,First Fit Decreasing,Late Acceptance,2,1340,-15720
+21,Late Acceptance,First Fit Decreasing,Late Acceptance,3,1340,-15720
+22,Late Acceptance,First Fit Decreasing,Late Acceptance,4,1340,-15720
+23,Late Acceptance,First Fit Decreasing,Late Acceptance,5,1340,-15720
+24,Late Acceptance,First Fit Decreasing,Late Acceptance,10,1340,-15720
+25,Simulated Annealing/Tabu,First Fit Decreasing,Simulated Annealing/Tabu,1,1340,-15580
+26,Simulated Annealing/Tabu,First Fit Decreasing,Simulated Annealing/Tabu,2,1340,-16060
+27,Simulated Annealing/Tabu,First Fit Decreasing,Simulated Annealing/Tabu,3,1340,-15540
+28,Simulated Annealing/Tabu,First Fit Decreasing,Simulated Annealing/Tabu,4,1340,-15820
+29,Simulated Annealing/Tabu,First Fit Decreasing,Simulated Annealing/Tabu,5,1340,-15720
+30,Simulated Annealing/Tabu,First Fit Decreasing,Simulated Annealing/Tabu,10,1340,-15760
+
+
+
+
+
