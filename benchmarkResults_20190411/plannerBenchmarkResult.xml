@@ -1,0 +1,203 @@
+<plannerBenchmarkResult xStreamId="1">
+  <name>2019-04-11_161026</name>
+  <aggregation>false</aggregation>
+  <availableProcessors>4</availableProcessors>
+  <loggingLevelOptaPlannerCore>warn</loggingLevelOptaPlannerCore>
+  <loggingLevelDroolsCore>warn</loggingLevelDroolsCore>
+  <maxMemory>1836580864</maxMemory>
+  <optaPlannerVersion>7.16.0.Final</optaPlannerVersion>
+  <javaVersion>Java 1.8.0_191 (Oracle Corporation)</javaVersion>
+  <javaVM>Java Java HotSpot(TM) 64-Bit Server VM 25.191-b12 (Oracle Corporation)</javaVM>
+  <operatingSystem>Windows 7 amd64 6.1</operatingSystem>
+  <parallelBenchmarkCount>2</parallelBenchmarkCount>
+  <warmUpTimeMillisSpentLimit>30</warmUpTimeMillisSpentLimit>
+  <solverBenchmarkResult xStreamId="2">
+    <name>First Fit Decreasing</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="3">
+      <scanAnnotatedClasses xStreamId="4"/>
+      <scoreDirectorFactory xStreamId="5">
+        <scoreDrl>com/phqtime/phqtimetable/ScoreRules.drl</scoreDrl>
+      </scoreDirectorFactory>
+      <termination xStreamId="6">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="7">
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch xStreamId="8"/>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="9">
+      <subSingleBenchmarkResult xStreamId="10">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="11">1340hard/-15960soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>5919983</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <solverBenchmarkResult xStreamId="12">
+    <name>Tabu Search</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="13">
+      <scanAnnotatedClasses xStreamId="14"/>
+      <scoreDirectorFactory xStreamId="15">
+        <scoreDrl>com/phqtime/phqtimetable/ScoreRules.drl</scoreDrl>
+      </scoreDirectorFactory>
+      <termination xStreamId="16">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="17">
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch xStreamId="18">
+        <acceptor xStreamId="19">
+          <entityTabuSize>7</entityTabuSize>
+        </acceptor>
+        <forager xStreamId="20">
+          <acceptedCountLimit>1000</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="21">
+      <subSingleBenchmarkResult xStreamId="22">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="23">1340hard/-15780soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>6007541</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <solverBenchmarkResult xStreamId="24">
+    <name>Simulated Annealing</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="25">
+      <scanAnnotatedClasses xStreamId="26"/>
+      <scoreDirectorFactory xStreamId="27">
+        <scoreDrl>com/phqtime/phqtimetable/ScoreRules.drl</scoreDrl>
+      </scoreDirectorFactory>
+      <termination xStreamId="28">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="29">
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch xStreamId="30">
+        <acceptor xStreamId="31">
+          <simulatedAnnealingStartingTemperature>0hard/400soft</simulatedAnnealingStartingTemperature>
+        </acceptor>
+        <forager xStreamId="32">
+          <acceptedCountLimit>4</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="33">
+      <subSingleBenchmarkResult xStreamId="34">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="35">1340hard/-15780soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>5494831</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <solverBenchmarkResult xStreamId="36">
+    <name>Late Acceptance</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="37">
+      <scanAnnotatedClasses xStreamId="38"/>
+      <scoreDirectorFactory xStreamId="39">
+        <scoreDrl>com/phqtime/phqtimetable/ScoreRules.drl</scoreDrl>
+      </scoreDirectorFactory>
+      <termination xStreamId="40">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="41">
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch xStreamId="42">
+        <acceptor xStreamId="43">
+          <lateAcceptanceSize>400</lateAcceptanceSize>
+        </acceptor>
+        <forager xStreamId="44">
+          <acceptedCountLimit>4</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="45">
+      <subSingleBenchmarkResult xStreamId="46">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="47">1340hard/-15720soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>5656550</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <solverBenchmarkResult xStreamId="48">
+    <name>Step Counting Hill Climbing</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="49">
+      <scanAnnotatedClasses xStreamId="50"/>
+      <scoreDirectorFactory xStreamId="51">
+        <scoreDrl>com/phqtime/phqtimetable/ScoreRules.drl</scoreDrl>
+      </scoreDirectorFactory>
+      <termination xStreamId="52">
+        <minutesSpentLimit>5</minutesSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="53">
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch xStreamId="54">
+        <acceptor xStreamId="55">
+          <stepCountingHillClimbingSize>200</stepCountingHillClimbingSize>
+        </acceptor>
+        <forager xStreamId="56">
+          <acceptedCountLimit>1</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="57">
+      <subSingleBenchmarkResult xStreamId="58">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore" xStreamId="59">1340hard/-15760soft</score>
+        <timeMillisSpent>300000</timeMillisSpent>
+        <scoreCalculationCount>6849920</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <unifiedProblemBenchmarkResult xStreamId="60">
+    <name>134Patient-136Practioner</name>
+    <problemProvider class="fileProblemProvider" xStreamId="61">
+      <problemFile>benchmark\data\unresolved\134Patient-136Practioner.xml</problemFile>
+    </problemProvider>
+    <writeOutputSolutionEnabled>false</writeOutputSolutionEnabled>
+    <problemStatistic class="bestScoreProblemStatistic" xStreamId="62">
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemStatistic>
+    <singleBenchmarkResult xStreamRef="9"/>
+    <singleBenchmarkResult xStreamRef="21"/>
+    <singleBenchmarkResult xStreamRef="33"/>
+    <singleBenchmarkResult xStreamRef="45"/>
+    <singleBenchmarkResult xStreamRef="57"/>
+    <entityCount>134</entityCount>
+    <variableCount>268</variableCount>
+    <maximumValueCount>137</maximumValueCount>
+    <problemScale>514024</problemScale>
+  </unifiedProblemBenchmarkResult>
+  <startingTimestamp>2019-04-11T16:10:26.765+08:00</startingTimestamp>
+  <benchmarkTimeMillisSpent>915724</benchmarkTimeMillisSpent>
+</plannerBenchmarkResult>
