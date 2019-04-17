@@ -1,0 +1,8 @@
+./nus-iss-mr-phq9/src/main/java/com/phq9_final/phq9final/Phq9Integration.java
+./nus-iss-mr-phq9/src/main/java/com/phqtime/phqtimetable/PhqSessionScheduleApp.java
+./nus-iss-mr-phq9/src/main/java/phq/PhqCheckService.java
+./nus-iss-mr-phq9/src/main/resources/com/phqtime/phqtimetable/ScoreRules.drl
+./nus-iss-mr-phq9/src/main/resources/com/phqtime/phqtimetable/TimeSolver.solver.xml
+./nus-iss-mr-phq9/src/main/resources/com/phqtime/phqtimetable/TimeSolver_Benchmark.xml
+./nus-iss-mr-phq9/src/main/resources/logback.xml
+./nus-iss-mr-phq9/src/main/resources/META-INF/kmodule.xml
