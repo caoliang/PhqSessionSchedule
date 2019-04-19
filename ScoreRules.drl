@@ -1,0 +1,119 @@
+package com.phqtime.phqtimetable;
+
+global org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder scoreHolder;
+
+rule "1practioner1slot"
+when
+    PhqProcess($id :id, $selectedPractioner : selectedPractioner, $selectedPeriod: selectedPeriod, selectedPractioner != null, !(selectedPractioner.nilPractioner) )
+    PhqProcess(id <$id, $selectedPractioner == selectedPractioner, $selectedPeriod == selectedPeriod )
+
+then
+    scoreHolder.addHardConstraintMatch(kcontext, -28);
+end
+
+
+rule "practionerSelection"
+when
+    PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null,
+        !(selectedPractioner.nilPractioner),
+    	assignedPatient.practionerType != selectedPractioner.role)
+
+then
+    scoreHolder.addHardConstraintMatch(kcontext, -28);
+end
+
+rule "languageRule"
+when
+    PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null,
+        !(selectedPractioner.nilPractioner),
+    	assignedPatient.preferLanguage != 0, // Patient prefer lanague != "English" 
+    	assignedPatient.preferLanguage != selectedPractioner.language)
+then
+    scoreHolder.addHardConstraintMatch(kcontext, -28);
+end
+
+/*
+rule "practionerUnavailableRule"
+when
+	PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null, 
+		!(selectedPractioner.nilPractioner), $selectedPeriod : selectedPeriod, selectedPeriod != null, 
+		selectedPractioner.isUnavailablePeriod(selectedPeriod))
+then
+    scoreHolder.addHardConstraintMatch(kcontext, -28);
+end
+*/
+rule "practionerUnavailableRule"
+when
+	PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null, 
+		!(selectedPractioner.nilPractioner), $selectedPeriod : selectedPeriod, selectedPeriod != null, 
+		selectedPractioner.isUnavailablePeriod(selectedPeriod))
+then
+    scoreHolder.addHardConstraintMatch(kcontext, -28);
+end
+
+rule "phqRule"
+when
+	PhqProcess(selectedPractioner != null, !(selectedPractioner.nilPractioner), $phqScore : assignedPatient.phqScore, $phqScore>9)
+then
+    scoreHolder.addHardConstraintMatch(kcontext, $phqScore);
+end
+/*
+rule "undeterminedRule"
+when
+	PhqProcess(selectedPractioner == null || !(selectedPractioner.nilPractioner) )
+then
+    scoreHolder.addHardConstraintMatch(kcontext, 0 );
+end
+*/
+
+/*
+rule "unavaiablePractionerRule"
+when
+    PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null, selectedPractioner.nilPractioner)
+then
+    scoreHolder.addHardConstraintMatch(kcontext, 9);
+end
+*/
+/*
+rule "avaiablePractionerRule"
+when
+    PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null, !(selectedPractioner.nilPractioner))
+then
+    scoreHolder.addHardConstraintMatch(kcontext, 10);
+end
+*/
+
+rule "genderRule"
+when
+	PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null,
+    	assignedPatient.preferGender != 0, // Patient prefer gender != "Any" 
+    	assignedPatient.preferGender == selectedPractioner.gender)
+then
+	scoreHolder.addSoftConstraintMatch(kcontext,  80);
+end
+
+rule "locationRule"
+when
+	PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null,
+    	assignedPatient.preferLocation != 0, // Patient prefer location != "Any" 
+    	assignedPatient.preferLocation == selectedPractioner.location)
+then
+	scoreHolder.addSoftConstraintMatch(kcontext,  80);
+end
+
+rule "preferDayRule"
+when
+	PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null,
+		$selectedPeriod : selectedPeriod, selectedPeriod != null,
+    	assignedPatient.preferDay != null, // Patient prefer location != "Any" 
+    	assignedPatient.preferDay == selectedPeriod.day)
+then
+	scoreHolder.addSoftConstraintMatch(kcontext,  80 );
+end
+
+rule "costRule"
+when
+	PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null)
+then
+	scoreHolder.addSoftConstraintMatch(kcontext, 120-$selectedPractioner.getCostEachHour());
+end
