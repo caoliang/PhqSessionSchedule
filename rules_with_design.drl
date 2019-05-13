@@ -1,0 +1,60 @@
+// One individual patient can only take one unique timeslot.
+// If it is not met, reduce the hard constraint mark.
+rule "1practioner1slot"
+when
+    PhqProcess($id :id, $selectedPractioner : selectedPractioner, $selectedPeriod: selectedPeriod, selectedPractioner != null, !(selectedPractioner.nilPractioner) )
+    PhqProcess(id <$id, $selectedPractioner == selectedPractioner, $selectedPeriod == selectedPeriod )
+
+then
+    scoreHolder.addHardConstraintMatch(kcontext, -28);
+end
+
+// The selected practioner should match the requied practioner type for the specfice patient according to the patient's PHQ9 score.
+// The adequate practioner type for the patient is computed in patient.getPractionerType() function.
+// If it is not met, reduce the hard constraint mark.
+rule "practionerSelection"
+when
+    PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null,
+        !(selectedPractioner.nilPractioner),
+    	assignedPatient.practionerType != selectedPractioner.role)
+
+then
+    scoreHolder.addHardConstraintMatch(kcontext, -28);
+end
+
+// The selected practioner should speak the lanague that matches the specfice patient prefered lanague.
+// But since all the practioner will be able to speak "English", so the system will not check the prefered language, 
+// when the patient does not specify the prefered lanague or choose "English" as the prefered lanague.
+// If it is not met, reduce the hard constraint mark.
+rule "languageRule"
+when
+    PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null,
+        !(selectedPractioner.nilPractioner),
+    	assignedPatient.preferLanguage != 0, // Patient prefer lanague != "English" 
+    	assignedPatient.preferLanguage != selectedPractioner.language)
+then
+    scoreHolder.addHardConstraintMatch(kcontext, -28);
+end
+
+// The practioner should be available at the selected appointment period.
+// If it is not met, reduce the hard constraint mark.
+rule "practionerUnavailableRule"
+when
+	PhqProcess($selectedPractioner : selectedPractioner, selectedPractioner != null, 
+		!(selectedPractioner.nilPractioner), $selectedPeriod : selectedPeriod, selectedPeriod != null, 
+		selectedPractioner.isUnavailablePeriod(selectedPeriod))
+then
+    scoreHolder.addHardConstraintMatch(kcontext, -28);
+end
+
+// When the system is able to allocate the practioner, then award the hard constraint with positive increament.
+// This is to urge the system to assign the available practioner, and not choose nilPractioner which represents no available practioner.
+// And in the meantime, this also allow the system not to choose practioner (i.e. choose nilPractioner) in case other hard constraints cannot 
+// be meet.
+// This rule also allow us to learn whether all the hard constraints are met by comparing the final hard constraint with the total PHQ9 points.
+rule "phqRule"
+when
+	PhqProcess(selectedPractioner != null, !(selectedPractioner.nilPractioner), $phqScore : assignedPatient.phqScore, $phqScore>9)
+then
+    scoreHolder.addHardConstraintMatch(kcontext, $phqScore);
+end
